@@ -1,14 +1,14 @@
-# Use a stable OpenJDK 17 image
-FROM openjdk:17-slim
+# Use a stable OpenJDK 17 slim image
+FROM openjdk:17-jdk-slim
 
-# Set working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy the built Spring Boot JAR into the container
+# Copy the jar built by Maven
 COPY target/student-management-0.0.1-SNAPSHOT.jar app.jar
 
-# Expose the port your Spring Boot app runs on
+# Expose the default Spring Boot port
 EXPOSE 8080
 
-# Run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run the jar
+ENTRYPOINT ["java","-jar","app.jar"]
